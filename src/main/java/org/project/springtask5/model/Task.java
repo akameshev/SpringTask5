@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import jdk.jfr.Timestamp;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.grammars.hql.HqlParser;
+import org.springframework.cglib.core.Local;
 
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -23,7 +25,8 @@ public class Task {
     private TaskStatus status;
 
     @CreationTimestamp
-    @Column(name = "created_at", updatable = false,nullable = false)
-    private LocalDateTime createdAt;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "created_at", updatable = true,nullable = false)
+    private LocalDateTime createdAt = LocalDateTime.now();
 
 }
