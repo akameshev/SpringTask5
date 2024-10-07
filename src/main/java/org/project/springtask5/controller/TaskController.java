@@ -51,7 +51,7 @@ public class TaskController {
             Task updatedTask = taskService.save(task);
             return ResponseEntity.ok(updatedTask);
         } else {
-            return ResponseEntity.notFound().build(); // Возвращаем 404, если задача не найдена
+            return ResponseEntity.notFound().build();
         }
     }
 }
